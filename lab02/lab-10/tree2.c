@@ -1,5 +1,3 @@
-
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -43,8 +41,8 @@ treeNode *searchBST(treeNode *root, element key)
         else
         {
             printf("\n찾은 학생 : %s", p->key.name);
-            printf("\n 중간 점수 : %d\n",p->key.midScore);
-            printf("\n 기말점수 : %d\n",p->key.fiScore);
+        //    printf("\n 중간 점수 : %d\n",p->key.midScore);
+        //    printf("\n 기말점수 : %d\n",p->key.fiScore);
             return p;
         }
     }
@@ -186,7 +184,7 @@ inorderDisplay(treeNode *root)
 
 void main()
 {
-    char choice;
+    int choice;
     element e;
     treeNode *root = NULL, *temp;
 
@@ -194,12 +192,10 @@ void main()
     {
         fflush(stdin);
         menu();
-        choice = getchar();
-        getchar();
-
-
-
-        switch (choice - '0')
+				scanf("%d",&choice);
+				fflush(stdin);
+				getchar();
+        switch (choice)
         {
         case 1:
             printf("\n[학생 입력] 학생를 입력하세요 : ");
@@ -232,5 +228,5 @@ void main()
             printf("\n\t[---------]\n");
             break;
         }
-    } while ((choice - '0') != 5);
+    } while ((choice) != 5);
 }

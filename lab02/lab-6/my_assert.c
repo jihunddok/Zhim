@@ -15,7 +15,7 @@ main(int argc, char *argv[]){
 	int num;
 
 	if (argc <2){
-		fprintf(stderr, "Usage : assert_test aNumber\n(0 <= aNumber <= 100\n");
+		fprintf(stderr, "Usage : assert_test aNumber\n(0 <= aNumber <= 100)\n");
 		exit(1);
 	}
 
