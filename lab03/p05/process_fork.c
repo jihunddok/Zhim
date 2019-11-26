@@ -1,7 +1,8 @@
 /**
- * 시스템 프로그래밍 lab3 과제 실습문제 5번
- * 파일 이름 : process_fork.c
- * 만든이 : 20153265 김동현
+ * process_fork.c
+ * autor shimjihun
+ * since 2019.11.11
+ * practice process management
  */
 #include <stdio.h>
 #include <stdlib.h>

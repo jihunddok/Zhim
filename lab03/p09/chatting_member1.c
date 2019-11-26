@@ -1,7 +1,6 @@
 /**
- * 시스템 프로그래밍 lab3 과제 실습문제 9번
- * 파일 이름 : chatting_p1.c
- * 만든이 : 20153265 김동현
+ * chatting_member.c
+ * author shimjihun
  */
 #define SEND "P1"
 #define RECV "P2"
@@ -49,7 +48,7 @@ int main(int argc, char** argv)
 		exit(0);
 	}
 	
-	printf("### Join chatt!! ###\n");
+	printf("joined.\n");
 	strcpy(send_buf, "/s");
 	mq_send(mq1, send_buf, strlen(send_buf), 0);
 	pthread_join(sendT, (void**)&status);

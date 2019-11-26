@@ -1,7 +1,7 @@
 /**
- * 시스템 프로그래밍 lab3 과제 실습문제 9번
- * 파일 이름 : chatt.h
- * 만든이 : 20153265 김동현
+ * chatt.h
+ * author shimjihun
+ *
  */
 #include <stdio.h>
 #include <stdlib.h>

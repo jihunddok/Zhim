@@ -1,7 +1,6 @@
 ﻿/**
- * 시스템 프로그래밍 lab3 과제 실습문제 10번
- * 파일 이름 : use_shm_sem_copy.c
- * 만든이 : 20153265 김동현
+ * use_shm_sem_copy.c
+ * author shimijihun
  */
 #include <sys/types.h> 
 #include <sys/ipc.h> 
@@ -27,7 +26,7 @@ union semapore
 
 static int semid;
 
-// 부모 프로세스 (파일 읽기 역할만 수행)
+// parent process < read file only >
 int parent_process_read(char *filename)
 {
 	int shmid, len;
@@ -35,7 +34,7 @@ int parent_process_read(char *filename)
 	FILE *fp = fopen(filename, "r");
 	int size = strlen((char *)shmaddr);
 	
-	printf("부모 프로세스(읽기) 시작!\n");
+	printf("parent process is reading...\n");
 	sleep(3);
 
 	if ((shmid = shmget(SHMKEY, SHMSIZE, IPC_CREAT|0666)) == -1) { 
@@ -57,17 +56,17 @@ int parent_process_read(char *filename)
 
 	printf("Read Success\n");
 	fclose(fp);
-	printf("부모 프로세스 종료.\n\n");
+	printf("shutdown parent process.\n\n");
 }
 
-// 자식 프로세스 (파일 쓰기 역할만 수행)
+// child process < file wirte only >
 int child_process_write(char *filename)
 {
 	int shmid, len; 
 	void *shmaddr;
 	FILE *fp = fopen(filename, "w");
 
-	printf("자식 프로세스(쓰기) 시작!\n");
+	printf("child process is writing...\n");
 	sleep(2);
 
 	if ((shmid = shmget(SHMKEY, SHMSIZE,IPC_CREAT|0666)) == -1)
@@ -98,7 +97,7 @@ int child_process_write(char *filename)
 	}
 
 	fclose(fp);
-	printf("자식 프로세스 종료.\n\n");
+	printf("child process is shutdown...\n\n");
 }
 
 int main(int argc, char **argv)
@@ -111,7 +110,7 @@ int main(int argc, char **argv)
 
 	if (argc != 3)
 	{
-        fprintf(stderr, "사용 방법 : %s <orignial file name> <create file name>\n", argv[0]);
+        fprintf(stderr, "USAGE : %s <orignial file name> <create file name>\n", argv[0]);
         exit(1);
 	}
 
@@ -153,7 +152,7 @@ int main(int argc, char **argv)
 
 	semop(semid, &mysem_close, 1);
 
-	printf("만들어진 %s 파일을 확인하세요.\n", argv[2]);
+	printf("file :  %s has created. please check.\n", argv[2]);
 
     return 0;
 }

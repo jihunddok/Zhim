@@ -1,7 +1,7 @@
 /**
- * 시스템 프로그래밍 lab3 과제 실습문제 2번
- * 파일 이름 : open_dir.c
- * 만든이 : 20153265 김동현
+ * open_dir.c
+ * author shim jihun
+ * since 2019.11.11
  */
 #include <stdio.h>
 #include <stdlib.h>

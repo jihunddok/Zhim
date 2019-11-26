@@ -1,8 +1,9 @@
 /**
- * 시스템 프로그래밍 lab3 과제 실습문제 3번
- * 파일 이름 : print_all_file.c
- * 만든이 : 20153265 김동현
- */
+* print_all_file.c
+* author shimjihun
+* since 2019.11.11
+* print all files that current directory also in under directory
+*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/types.h>
@@ -38,11 +39,11 @@ void read_dir(DIR *dir, char *file)
             exit(1);
         }
         
-        // 디렉토리인지를 검사하는데, 재귀함수를 사용하여 해당 내용을 읽어들임.
+        // check is directory.
         if(S_ISDIR(file_state.st_mode))
         {
             temp_dir = opendir(buff);
-            // 재귀함수 사용
+            // recursive call
             read_dir(temp_dir, buff);
             printf("\n");
         }
