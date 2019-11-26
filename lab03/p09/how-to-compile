@@ -1,0 +1,3 @@
+ gcc -o chatting_p1 chatting_p1.c -lrt -lpthread
+ gcc -o chatting_p2 chatting_p2.c -lrt -lpthread
+
